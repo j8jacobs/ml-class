@@ -10,13 +10,13 @@ def save_keras(model_name, kmodel, ep):
     else:
         raise Exception("Set model path.")
 
-def load_keras(self, ep):
-    jfile = open(os.path.join(self._model_path,"{0}-{1}".format(self._model_name, ep), "{0}-{1}.json".format(self._model_name, ep)))
+def load_keras(ep):
+    jfile = open(os.path.join(model_path, "{0}-{1}.json".format(model_name, ep)))
     modelJSON = jfile.read()
             
     kmodel = model_from_json(modelJSON)
-    kmodel.load_weights(os.path.join(self._model_path,"{0}-{1}".format(self._model_name, ep), "{0}-{1}.h5".format(self._model_name, ep)))
-    if self.verbose: print("Loaded Keras model from {0}!".format(os.path.join(self._model_path,"{0}-{1}".format(self._model_name, ep))))
+    kmodel.load_weights(os.path.join(model_path, "{0}-{1}.h5".format(model_name, ep)))
+    if self.verbose: print("Loaded Keras model from {0}!".format(os.path.join(model_path)))
         return kmodel
     else:
         raise Exception("Set model path.")
