@@ -85,13 +85,12 @@ class SunGod(Layers):
         self.model.add(BatchNormalization())
         self.model.add(LeakyReLU(alpha=0.15))
         self.model.add(Dropout(0.1))
-        self.model.add(MaxPooling2D(pool_size=(3,3)))
         
         self.model.add(Conv2D(256, kernel_size=(3,3), strides=(3,3)))
         self.model.add(BatchNormalization())
         self.model.add(LeakyReLU(alpha=0.15))
         self.model.add(Dropout(0.1))
-        self.model.add(MaxPooling2D(pool_size(3,3))
+        self.model.add(MaxPooling2D(pool_size=(3,3)))
 
         self.model.add(Flatten())
         self.model.add(Dense(512))
