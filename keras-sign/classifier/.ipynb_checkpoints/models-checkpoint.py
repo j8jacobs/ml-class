@@ -68,7 +68,7 @@ class SunGod(Layers):
 
     def __build_model(self):
         self.model = Sequential()
-        self.model.add(Conv2D(32, kernel_size=(3,3), strides=(1,1), input_shape=tuple(self.inShape)))
+        self.model.add(Conv2D(32, kernel_size=(5,5), strides=(1,1), input_shape=tuple(self.inShape)))
         self.model.add(Conv2D(64, kernel_size=(3,3), strides=(1,1), padding='same'))
         self.model.add(BatchNormalization())
         self.model.add(LeakyReLU(alpha=0.15))
@@ -86,9 +86,15 @@ class SunGod(Layers):
         self.model.add(LeakyReLU(alpha=0.15))
         self.model.add(Dropout(0.1))
         self.model.add(MaxPooling2D(pool_size=(3,3)))
+        
+        self.model.add(Conv2D(256, kernel_size=(3,3), strides=(3,3)))
+        self.model.add(BatchNormalization())
+        self.model.add(LeakyReLU(alpha=0.15))
+        self.model.add(Dropout(0.1))
+        self.model.add(MaxPooling2D(pool_size(3,3))
 
         self.model.add(Flatten())
-        self.model.add(Dense(256))
+        self.model.add(Dense(512))
         self.model.add(BatchNormalization())
         self.model.add(Activation('relu'))
         self.model.add(Dropout(0.1))
